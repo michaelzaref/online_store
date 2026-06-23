@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-brand-bg text-brand-text antialiased;
+    }
+}
+
+@layer components {
+    .hero-gradient {
+        background: linear-gradient(180deg, #F8F6F2 0%, #E5DDD0 45%, #C9B99A 100%);
+    }
+
+    .hero-full {
+        @apply relative w-full min-h-[calc(100svh-4rem)] grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] overflow-hidden;
+    }
+
+    .hero-full-copy {
+        @apply relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-20 py-12 md:py-16;
+        background: linear-gradient(180deg, #F8F6F2 0%, #EDE6DA 100%);
+    }
+
+    @media (min-width: 768px) {
+        .hero-full-copy {
+            background: radial-gradient(ellipse 120% 100% at 0% 50%, #F8F6F2 0%, #EDE6DA 55%, #E5DDD0 100%);
+        }
+    }
+
+    .hero-full-media {
+        @apply relative min-h-[45svh] sm:min-h-[50svh] md:min-h-0 md:h-full;
+    }
+
+    .hero-full-media img {
+        @apply absolute inset-0 w-full h-full object-cover object-center;
+    }
+
+    .hero-full-media::after {
+        content: '';
+        @apply absolute inset-0 pointer-events-none;
+        background: linear-gradient(to bottom, transparent 70%, rgba(248, 246, 242, 0.9) 100%);
+    }
+
+    @media (min-width: 768px) {
+        .hero-full-media::after {
+            background: linear-gradient(to right, #EDE6DA 0%, rgba(237, 230, 218, 0.85) 8%, transparent 28%);
+        }
+    }
+
+    .card-luxury {
+        @apply bg-brand-card rounded-4xl shadow-luxury overflow-hidden border border-white/60;
+    }
+
+    .btn-primary {
+        @apply bg-brand-primary text-white font-medium px-8 py-3.5 rounded-full transition hover:bg-brand-accent shadow-pill;
+    }
+
+    .btn-pill-white {
+        @apply bg-white text-brand-primary font-semibold px-10 py-4 rounded-full shadow-pill transition hover:shadow-lg;
+    }
+
+    .btn-icon-circle {
+        @apply w-11 h-11 rounded-full bg-white shadow-luxury flex items-center justify-center text-brand-text hover:text-brand-accent transition;
+    }
+
+    .btn-icon-circle-dark {
+        @apply w-11 h-11 rounded-full bg-brand-primary text-white shadow-pill flex items-center justify-center hover:bg-brand-accent transition;
+    }
+
+    .section-label {
+        @apply text-xs font-semibold tracking-[0.2em] uppercase text-brand-text/50;
+    }
+
+    .section-title {
+        @apply font-display text-2xl md:text-3xl font-semibold text-brand-text tracking-tight;
+    }
+
+    .price-badge {
+        @apply inline-block bg-brand-primary text-white text-sm font-semibold px-4 py-1.5 rounded-full;
+    }
+
+    .bottom-nav {
+        @apply fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-white rounded-full shadow-pill px-2 py-2 flex items-center gap-1 md:hidden;
+    }
+
+    .bottom-nav-item {
+        @apply flex flex-col items-center justify-center w-14 h-12 rounded-full text-brand-text/50 transition;
+    }
+
+    .bottom-nav-item.active {
+        @apply bg-brand-primary text-white;
+    }
+
+    .buy-bar {
+        @apply fixed bottom-0 left-0 right-0 z-40 bg-brand-primary rounded-t-4xl px-6 py-4 flex items-center justify-between gap-4 md:relative md:rounded-full md:mt-8;
+    }
+
+    .crown-watermark {
+        @apply absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.07];
+    }
+}
