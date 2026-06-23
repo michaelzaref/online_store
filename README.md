@@ -1,4 +1,4 @@
-# BegoStore — Luxury Watch E-Commerce Store
+# Elite Store — Luxury Watch E-Commerce Store
 
 A full-featured Laravel + MySQL ecommerce platform for luxury watches, built with Filament admin panel.
 
@@ -81,7 +81,7 @@ DB_PASSWORD=watchstore
 
 | Role     | Email                  | Password  |
 |----------|------------------------|-----------|
-| Admin    | admin@begostore.com    | password  |
+| Admin    | admin@elite-store.online | password  |
 | Customer | customer@example.com   | password  |
 
 ## Managing Orders & Delivery

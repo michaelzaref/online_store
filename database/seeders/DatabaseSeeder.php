@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@begostore.com',
+            'email' => 'admin@elite-store.online',
             'password' => bcrypt('password'),
             'is_admin' => true,
             'email_verified_at' => now(),
@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
             $product = Product::create([
                 ...$data,
                 'slug' => Str::slug($data['name']),
-                'sku' => 'BG-'.str_pad($i + 1, 4, '0', STR_PAD_LEFT),
+                'sku' => 'ES-'.str_pad($i + 1, 4, '0', STR_PAD_LEFT),
                 'description' => "Premium {$data['name']} from {$brand->name}. Crafted with exceptional attention to detail.",
                 'short_description' => "Luxury {$category->name} timepiece by {$brand->name}.",
                 'brand_id' => $brand->id,
@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
         Testimonial::insert([
             ['customer_name' => 'Ahmed Hassan', 'customer_title' => 'Verified Buyer', 'content' => 'Exceptional quality and fast delivery. My Rolex arrived perfectly packaged.', 'rating' => 5, 'is_active' => true, 'sort_order' => 1, 'created_at' => now(), 'updated_at' => now()],
             ['customer_name' => 'Sarah Mitchell', 'customer_title' => 'Watch Collector', 'content' => 'Best watch store in Egypt. Authentic pieces with great customer service.', 'rating' => 5, 'is_active' => true, 'sort_order' => 2, 'created_at' => now(), 'updated_at' => now()],
-            ['customer_name' => 'Omar El-Sayed', 'customer_title' => 'Verified Buyer', 'content' => 'The Omega Speedmaster is stunning. Highly recommend BegoStore!', 'rating' => 5, 'is_active' => true, 'sort_order' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['customer_name' => 'Omar El-Sayed', 'customer_title' => 'Verified Buyer', 'content' => 'The Omega Speedmaster is stunning. Highly recommend Elite Store!', 'rating' => 5, 'is_active' => true, 'sort_order' => 3, 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

@@ -15,9 +15,9 @@ while ss -tln | grep -q ":${PORT} "; do
 done
 
 echo ""
-echo "BegoStore is running:"
+echo "Elite Store is running:"
 echo "  Store: http://127.0.0.1:${PORT}"
 echo "  Admin: http://127.0.0.1:${PORT}/admin"
-echo "  Login: admin@begostore.com / password"
+echo "  Login: admin@elite-store.online / password"
 echo ""
 php artisan serve --host=127.0.0.1 --port="$PORT"

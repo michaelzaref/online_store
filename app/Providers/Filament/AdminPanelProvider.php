@@ -27,7 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('BegoStore')
+            ->brandName(config('store.name'))
             ->colors([
                 'primary' => '#0F5132',
                 'gray' => '#0F0F0F',
