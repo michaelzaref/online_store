@@ -49,4 +49,35 @@ $PHP_BIN artisan filament:optimize 2>/dev/null || true
 
 chmod -R 775 storage bootstrap/cache
 
+# Sync cPanel public_html (document root) with Laravel app
+WEB_DIR="/home/elitjaio/public_html"
+mkdir -p "$WEB_DIR"
+cp "$APP_DIR/public/.htaccess" "$WEB_DIR/.htaccess"
+cat > "$WEB_DIR/index.php" << 'PHP'
+<?php
+
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
+
+define('LARAVEL_START', microtime(true));
+
+if (file_exists($maintenance = __DIR__.'/../online_store/storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
+require __DIR__.'/../online_store/vendor/autoload.php';
+
+/** @var Application $app */
+$app = require_once __DIR__.'/../online_store/bootstrap/app.php';
+
+$app->handleRequest(Request::capture());
+PHP
+for item in build css js storage favicon.ico robots.txt; do
+  if [ -e "$APP_DIR/public/$item" ]; then
+    ln -sfn "$APP_DIR/public/$item" "$WEB_DIR/$item"
+  fi
+done
+chmod 755 "$WEB_DIR"
+chmod 644 "$WEB_DIR/index.php" "$WEB_DIR/.htaccess"
+
 echo "==> Deploy complete: https://elite-store.online"
